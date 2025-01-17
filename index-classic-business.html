@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+   <!-- Meta Tags -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- description -->
+   <meta name="description" content="MegaOne is a highly creative, modern, visually stunning and Bootstrap responsive multipurpose agency and HTML5 template with 14 ready home page demos.">
+   <!-- keywords -->
+   <meta name="keywords" content="creative, modern, clean, bootstrap responsive, html5, css3, portfolio, blog, agency, templates, multipurpose, one page, corporate, start-up, studio, branding, designer, freelancer, carousel, parallax, photography, personal, masonry, grid, faq">
+   <!-- Page Title -->
+   <title>Payroll Claculate</title>
+   <!-- Favicon -->
+   <link rel="icon" href="logo.svg">
+   <!-- Bundle -->
+   <link rel="stylesheet" href="vendor/css/bundle.min.css">
+   <!-- Plugin Css -->
+   <link rel="stylesheet" href="vendor/css/jquery.fancybox.min.css">
+   <link rel="stylesheet" href="vendor/css/owl.carousel.min.css">
+   <link rel="stylesheet" href="vendor/css/swiper.min.css">
+   <link rel="stylesheet" href="vendor/css/cubeportfolio.min.css">
+   <link rel="stylesheet" href="vendor/css/wow.css">
+   <!-- Slider Settings -->
+   <link rel="stylesheet" href="vendor/css/LineIcons.min.css">
+   <link rel="stylesheet" href="classic-business/css/settings.css">
+   <!-- Style Sheet -->
+   <link rel="stylesheet" href="classic-business/css/style.css">
+   <link rel="stylesheet" href="classic-business/css/custom.css">
+
+   <style>
+      table {
+          border-collapse: collapse;
+          width: 100%;
+          background: #ffffff;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          border-radius: 8px;
+          overflow: hidden;
+      }
+
+      th, td {
+          padding: 15px;
+          text-align: left;
+          border-bottom: 1px solid #ddd;
+      }
+
+      th {
+          background: #0073e6;
+          color: #ffffff;
+          text-transform: uppercase;
+      }
+
+      .total-row {
+          font-weight: bold;
+          background: #d4edda;
+          color: #080e5d;
+      }
+
+      input[type="number"] {
+          width: calc(100% - 30px);
+          padding: 8px;
+          border: 1px solid #000000;
+          border-radius: 4px;
+          box-sizing: border-box;
+          font-size: 16px;
+      }
+
+      button {
+          background: #008000;
+          color: #fff;
+          border: none;
+          padding: 10px 20px;
+          font-size: 16px;
+          cursor: pointer;
+          border-radius: 4px;
+          margin-top: 10px;
+          transition: background 0.3s;
+      }
+      button#resetButton {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+  }
+  button#resetButton::before {
+      content: '\21bb';  /* Unicode for refresh icon */
+      font-size: 14px;
+  }
+      
+
+      button:hover {
+          background: #d8dbff;
+      }
+
+      @media (max-width: 768px) {
+          table, th, td {
+              display: block;
+              width: 100%;
+          }
+          th, td {
+              padding: 10px;
+          }
+          th {
+              text-align: center;
+          }
+      }
+  </style> 
+  
+  <style>
+   #table_container {
+       max-width: 80%;  /* Reduced width for smaller table size */
+       margin: 0 auto;
+       overflow-x: auto;
+       padding: 10px;
+       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+   }
+   table {
+       width: 100%;
+       border-collapse: collapse;
+       font-size: 14px;  /* Smaller font size */
+   }
+   th, td {
+       padding: 8px 10px;
+       text-align: left;
+   }
+   th {
+       background-color: #f4f4f4;
+   }
+   .total-row {
+       font-weight: bold;
+   }
+   input[type="number"] {
+       width: 100%;
+       padding: 6px;
+       font-size: 12px;  /* Smaller input size */
+   }
+   button {
+       padding: 5px 10px;
+       font-size: 12px;
+       margin-right: 5px;
+       cursor: pointer;
+   }
+   @media screen and (max-width: 600px) {
+       table {
+           font-size: 12px;
+       }
+       th, td {
+           padding: 6px;
+       }
+       button {
+           padding: 4px 8px;
+           font-size: 10px;
+       }
+   }
+ </style>
+   </head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<!-- Start Loader -->
+<div class="pre-loader">
+   <div class="loader">
+      <div></div>
+      <div></div>
+      <div></div>
+   </div>
+</div>
+<!-- End Loader -->
+
+<!-- Start Header -->
+<header class="navigation-bar">
+   <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top navbar-fixed-top">
+      <div class="container">
+         <a class="navbar-brand" href="#" style="height: 20%; width: 20%; background-color: #ffffff;">
+            <img src="logo.svg" alt="image" >
+         </a>
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+               <li class="nav-item active">
+                  <a class="nav-link" href="#home">Home</a>
+               </li>
+               <li class="nav-item ">
+                  <a class="nav-link" href="#services">Services</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#team">Team</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#work">Work</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#pricing">Pricing</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#blog">Blog</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#contact">Contact</a>
+               </li>
+            </ul>
+         </div>
+         <div class="social-icons">
+            <ul>
+               <li><a class="facebook-hovr" href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a></li>
+               <li><a class="twitter-hovr" href="javascript:void(0);"><i class="fab fa-twitter"></i></a></li>
+               <li><a class="instagram-hovr" href="javascript:void(0);"><i class="fab fab fa-instagram"></i></a></li>
+            </ul>
+         </div>
+      </div>
+      <!-- Side Menu Button -->
+      <a href="javascript:void(0)" class="sidemenu_btn link" id="sidemenu_toggle">
+         <span></span>
+         <span></span>
+         <span></span>
+      </a>
+   </nav>
+
+   <!-- Side Menu -->
+   <div class="side-menu hidden">
+      <div class="inner-wrapper">
+         <div class="image">
+            <img src="classic-business/img/side-menu.png" alt="image">
+         </div>
+         <span class="btn-close" id="btn_sideNavClose"><i></i><i></i></span>
+         <nav class="side-nav w-100">
+            <ul class="navbar-nav">
+               <li class="nav-item">
+                  <a class="nav-link scroll" href="#home">Home</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link scroll" href="#services">Services</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link scroll" href="#team">Team</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link scroll" href="#work">Work</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link scroll" href="#contact">Contact</a>
+               </li>
+            </ul>
+         </nav>
+         <div class="side-menu-footer">
+            <div class="banner-icons">
+               <ul>
+                  <li><a href="javascript:void(0);" class="hover"><i class="fab fa-facebook-f"></i></a></li>
+                  <li><a href="javascript:void(0);" class="hover"><i class="fab fa-twitter"></i></a></li>
+                  <li><a href="javascript:void(0);" class="hover"><i class="fab fa-linkedin-in"></i></a></li>
+                  <li><a href="javascript:void(0);" class="hover"><i class="fab fa-instagram"></i></a></li>
+               </ul>
+            </div>
+            <p class="copywrite text-left">&copy; 2023 MegaOne. Made With Love by Themesindustry.</p>
+         </div>
+      </div>
+   </div>
+   <a id="close_side_menu" href="javascript:void(0);"></a>
+</header>
+<!-- End Header -->
+
+<!-- Start Slider -->
+<section class="slider" id="home">
+   <div id="rev_slider_1_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="slider-shop" data-source="gallery" style="background:rgba(255,255,255,0);padding:0px;">
+      <!-- START REVOLUTION SLIDER 5.4.8.1 fullscreen mode -->
+      <div id="rev_slider_1_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.4.8.1">
+         <ul>
+            <!-- SLIDE-1 -->
+            <li data-index="rs-2" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="classic-business/img/slide-1.png"  data-rotate="0"  data-saveperformance="off"  data-title="Slide 2" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+               <!-- MAIN IMAGE -->
+               <img src="classic-business/img/pexels-pixabay-273209.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina>
+               <div class="bg-overlay bg-white opacity-1"></div>
+               <!-- LAYERS -->
+               <!-- LAYER NR. 6 -->
+               <div class="tp-caption   tp-resizeme"
+                  id="slide-2-layer-1"
+                  data-x="['left','center','center','center']" data-hoffset="['5','0','0','0']"
+                  data-y="['middle','middle','middle','middle']" data-voffset="['-120','-115','-114','-114']"
+                  data-fontsize="['16','16','18','18']"
+                  data-width="none"
+                  data-height="none"
+                  data-whitespace="nowrap"
+                  data-type="text"
+                  data-responsive_offset="on"
+                  data-frames='[{"delay":10,"speed":2000,"frame":"0","from":"x:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":280,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
+                  data-textAlign="['inherit','inherit','inherit','inherit']"
+                  data-paddingtop="[0,0,0,0]"
+                  data-paddingright="[0,0,0,0]"
+                  data-paddingbottom="[0,0,0,0]"
+                  data-paddingleft="[0,0,0,0]"
+                  style="z-index: 5; white-space: nowrap; font-size: 24px; line-height: 22px; font-weight: 500; color:#18191d;">Serving Since 2006</div>
+               <!-- LAYER NR. 7 -->
+               <div class="tp-caption   tp-resizeme"
+                  id="slide-2-layer-2"
+                  data-x="['left','center','center','center']" data-hoffset="['0','0','0','0']"
+                  data-y="['middle','middle','middle','middle']" data-voffset="['-52','-52','-52','-52']"
+                  data-fontsize="['60','60','50','40']"
+                  data-width="none"
+                  data-height="none"
+                  data-whitespace="nowrap"
+                  data-type="text"
+                  data-responsive_offset="on"
+                  data-frames='[{"delay":10,"speed":2000,"frame":"0","from":"x:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":280,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
+                  data-textAlign="['inherit','inherit','inherit','inherit']"
+                  data-paddingtop="[0,0,0,0]"
+                  data-paddingright="[0,0,0,0]"
+                  data-paddingbottom="[0,0,0,0]"
+                  data-paddingleft="[0,0,0,0]"
+                  style="z-index: 6; white-space: nowrap; font-size: 60px; line-height: 16px; font-weight: 600; color: #032a58; letter-spacing: 0px;">Elevate Your Career</div>
+               <!-- LAYER NR. 8 -->
+               <div class="tp-caption   tp-resizeme"
+                  id="slide-2-layer-3"
+                  data-x="['left','center','center','center']" data-hoffset="['3','0','0','0']"
+                  data-y="['middle','middle','middle','middle']" data-voffset="['15','15','15','15']"
+                  data-fontsize="['18','18','16','16']"
+                  data-width="['530','530','530','450']"
+                  data-height="none"
+                  data-whitespace="normal"
+                  data-type="text"
+                  data-responsive_offset="on"
+                  data-frames='[{"delay":10,"speed":2000,"frame":"0","from":"x:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":280,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
+                  data-textAlign="['inherit','center','center','center']"
+                  data-paddingtop="[30,30,30,30]"
+                  data-paddingright="[0,0,0,0]"
+                  data-paddingbottom="[0,0,0,0]"
+                  data-paddingleft="[0,0,0,0]"
+                  style="z-index: 7; white-space: normal; font-size: 18px; line-height: 22px; font-weight: 400; color: #ffffff; letter-spacing: 0px; ">Your Gateway to Global IT Opportunities
+               </div>
+               <div class="tp-caption   tp-resizeme"
+                  id="slide-2-layer-4"
+                  data-x="['left','center','center','center']" data-hoffset="['0','0','30','1']"
+                  data-y="['top','top','top','top']" data-voffset="['415','439','533','270']"
+                  data-width="['160','160','260','320']"
+                  data-height="none"
+                  data-whitespace="nowrap"
+                  data-type="button"
+                  data-responsive_offset="on"
+                  data-frames='[{"delay":10,"speed":2000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":280,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"500","ease":"Linear.ease","to":"o:1;rX:0;rY:0;rZ:0;z:0;"}]'
+                  data-textAlign="['inherit','inherit','inherit','center']"
+                  data-paddingtop="[30,30,30,30]"
+                  data-paddingright="[0,0,0,0]"
+                  data-paddingbottom="[0,0,0,0]"
+                  data-paddingleft="[0,0,0,0]"
+                  style="z-index: 11; max-width:960px; white-space: nowrap; font-size: 14px; line-height: 22px; font-weight: 500; color: #ffffff; letter-spacing: 0px;">
+                  
+               </div>
+            </li>
+            <!-- SLIDE-2 -->
+            <li data-index="rs-4" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="classic-business/img/slide-2.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Slide 4" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+               <!-- MAIN IMAGE -->
+               <img src="classic-business/img/pexels-pixabay-161963.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina>
+               <div class="bg-overlay bg-white opacity-2"></div>
+               <!-- LAYERS -->
+               <!-- LAYER NR. 15 -->
+               <div class="tp-caption   tp-resizeme"
+                  id="slide-4-layer-1"
+                  data-x="['left','center','center','center']" data-hoffset="['5','0','0','0']"
+                  data-y="['middle','middle','middle','middle']" data-voffset="['-120','-115','-110','-114']"
+                  data-fontsize="['16','16','18','18']"
+                  data-width="none"
+                  data-height="none"
+                  data-whitespace="nowrap"
+                  data-type="text"
+                  data-responsive_offset="on"
+                  data-frames='[{"delay":10,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":280,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
+                  data-textAlign="['inherit','inherit','inherit','inherit']"
+                  data-paddingtop="[0,0,0,0]"
+                  data-paddingright="[0,0,0,0]"
+                  data-paddingbottom="[0,0,0,0]"
+                  data-paddingleft="[0,0,0,0]"
+                  style="z-index: 5; white-space: nowrap; font-size: 24px; line-height: 22px; font-weight: 500; color:#ffffff;">Serving Since 2006</div>
+               <!-- LAYER NR. 16 -->
+               <div class="tp-caption   tp-resizeme"
+                  id="slide-4-layer-2"
+                  data-x="['left','center','center','center']" data-hoffset="['0','0','0','0']"
+                  data-y="['middle','middle','middle','middle']" data-voffset="['-52','-52','-52','-52']"
+                  data-fontsize="['60','60','50','40']"
+                  data-lineheight="['54','16','40','51']"
+                  data-width="none"
+                  data-height="['60','60','60','60']"
+                  data-whitespace="nowrap"
+                  data-type="text"
+                  data-responsive_offset="on"
+                  data-frames='[{"delay":10,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":280,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
+                  data-textAlign="['inherit','inherit','inherit','inherit']"
+                  data-paddingtop="[0,0,0,0]"
+                  data-paddingright="[0,0,0,0]"
+                  data-paddingbottom="[0,0,0,0]"
+                  data-paddingleft="[0,0,0,0]"
+                  style="z-index: 6; white-space: nowrap; font-size: 60px; line-height: 16px; font-weight: 600; color: #032a58; letter-spacing: 0px;">Connect Talents with Opportunities</div>
+               <!-- LAYER NR. 17 -->
+               <div class="tp-caption   tp-resizeme"
+                  id="slide-4-layer-3"
+                  data-x="['left','center','center','center']" data-hoffset="['3','0','0','0']"
+                  data-y="['middle','middle','middle','middle']" data-voffset="['15','15','15','15']"
+                  data-fontsize="['18','18','16','16']"
+                  data-width="['530','530','530','450']"
+                  data-height="none"
+                  data-whitespace="normal"
+                  data-type="text"
+                  data-responsive_offset="on"
+                  data-frames='[{"delay":10,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":280,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
+                  data-textAlign="['inherit','center','center','center']"
+                  data-paddingtop="[30,30,30,30]"
+                  data-paddingright="[0,0,0,0]"
+                  data-paddingbottom="[0,0,0,0]"
+                  data-paddingleft="[0,0,0,0]"
+                  style="z-index: 7; white-space: normal; font-size: 18px; line-height: 22px; font-weight: 400; color: #ffffff; letter-spacing: 0px; "> Professional & Managed Services
+               </div>
+               <div class="tp-caption   tp-resizeme"
+                  id="slide-2-layer-8"
+                  data-x="['left','center','center','center']" data-hoffset="['0','0','30','35']"
+                  data-y="['top','top','top','top']" data-voffset="['410','439','533','270']"
+                  data-width="['260','160','260','260']"
+                  data-height="none"
+                  data-whitespace="nowrap"
+                  data-type="button"
+                  data-responsive_offset="on"
+                  data-frames='[{"delay":10,"speed":2000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":280,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"500","ease":"Linear.ease","to":"o:1;rX:0;rY:0;rZ:0;z:0;"}]'
+                  data-textAlign="['inherit','inherit','inherit','inherit']"
+                  data-paddingtop="[30,30,30,30]"
+                  data-paddingright="[0,0,0,0]"
+                  data-paddingbottom="[0,0,0,0]"
+                  data-paddingleft="[0,0,0,0]"
+                  style="z-index: 11; max-width:960px; white-space: nowrap; font-size: 14px; line-height: 22px; font-weight: 500; color: #ffffff; letter-spacing: 0px;">
+             
+               </div>
+            </li>
+            <!-- SLIDE-3 -->
+            <li data-index="rs-1" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="classic-business/img/slide-3.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Slide 1" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+               <!-- MAIN IMAGE -->
+               <img src="classic-business/img/pexels-cottonbro-5989933.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina>
+               <div class="bg-overlay bg-white opacity-2"></div>
+               <!-- LAYERS -->
+               <!-- LAYER NR. 1 -->
+               <div class="tp-caption   tp-resizeme"
+                  id="slide-1-layer-1"
+                  data-x="['left','center','center','center']" data-hoffset="['5','0','0','0']"
+                  data-y="['middle','middle','middle','middle']" data-voffset="['-120','-115','-114','-114']"
+                  data-fontsize="['16','16','18','18']"
+                  data-width="none"
+                  data-height="none"
+                  data-whitespace="nowrap"
+                  data-type="text"
+                  data-responsive_offset="on"
+                  data-frames='[{"delay":10,"speed":2000,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":280,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
+                  data-textAlign="['inherit','inherit','inherit','inherit']"
+                  data-paddingtop="[0,0,0,0]"
+                  data-paddingright="[0,0,0,0]"
+                  data-paddingbottom="[0,0,0,0]"
+                  data-paddingleft="[0,0,0,0]"
+                  style="z-index: 5; white-space: nowrap; font-size: 24px; line-height: 22px; font-weight: 500; color:#18191d;">Serving Since 2006</div>
+               <!-- LAYER NR. 2 -->
+               <div class="tp-caption   tp-resizeme"
+                  id="slide-1-layer-2"
+                  data-x="['left','center','center','center']" data-hoffset="['0','0','0','0']"
+                  data-y="['middle','middle','middle','middle']" data-voffset="['-52','-52','-52','-52']"
+                  data-fontsize="['60','60','50','40']"
+                  data-lineheight="['54','16','16','51']"
+                  data-width="none"
+                  data-height="none"
+                  data-whitespace="nowrap"
+                  data-type="text"
+                  data-responsive_offset="on"
+                  data-frames='[{"delay":10,"speed":2000,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":280,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
+                  data-textAlign="['inherit','inherit','inherit','inherit']"
+                  data-paddingtop="[0,0,0,0]"
+                  data-paddingright="[0,0,0,0]"
+                  data-paddingbottom="[0,0,0,0]"
+                  data-paddingleft="[0,0,0,0]"
+                  style="z-index: 6; white-space: nowrap; font-size: 60px; line-height: 16px; font-weight: 600; color: #032a58; letter-spacing: 0px;">Digitalize</div>
+               <!-- LAYER NR. 3 -->
+               <div class="tp-caption   tp-resizeme"
+                  id="slide-1-layer-3"
+                  data-x="['left','center','center','center']" data-hoffset="['3','0','0','0']"
+                  data-y="['middle','middle','middle','middle']" data-voffset="['15','15','15','15']"
+                  data-fontsize="['18','18','16','16']"
+                  data-width="['510','510','510','450']"
+                  data-height="none"
+                  data-whitespace="normal"
+                  data-type="text"
+                  data-responsive_offset="on"
+                  data-frames='[{"delay":10,"speed":2000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":280,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
+                  data-textAlign="['inherit','center','center','center']"
+                  data-paddingtop="[30,30,30,30]"
+                  data-paddingright="[0,0,0,0]"
+                  data-paddingbottom="[0,0,0,0]"
+                  data-paddingleft="[0,0,0,0]"
+                  style="z-index: 7; white-space: normal; font-size: 18px; line-height: 22px; font-weight: 400; color: #18191d; letter-spacing: 0px; ">Streamline Business Operations – IT Solutions
+               </div>
+               <div class="tp-caption   tp-resizeme"
+                  id="slide-1-layer-8"
+                  data-x="['left','center','center','center']" data-hoffset="['0','0','30','35']"
+                  data-y="['top','top','top','top']" data-voffset="['415','439','533','270']"
+                  data-width="['160','160','260','260']"
+                  data-height="none"
+                  data-whitespace="nowrap"
+                  data-type="button"
+                  data-responsive_offset="on"
+                  data-frames='[{"delay":10,"speed":2000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":280,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"500","ease":"Linear.ease","to":"o:1;rX:0;rY:0;rZ:0;z:0;"}]'
+                  data-textAlign="['inherit','inherit','inherit','inherit']"
+                  data-paddingtop="[30,30,30,30]"
+                  data-paddingright="[0,0,0,0]"
+                  data-paddingbottom="[0,0,0,0]"
+                  data-paddingleft="[0,0,0,0]"
+                  style="z-index: 11; max-width:960px; white-space: nowrap; font-size: 14px; line-height: 22px; font-weight: 500; color: #ffffff; letter-spacing: 0px;">
+                
+               </div>
+            </li>
+         </ul>
+         <div class="tp-bannertimer tp-bottom" style="height: 5px; background: rgb(87,202,133);"></div>
+      </div>
+   </div>
+   <!-- END REVOLUTION SLIDER -->
+</section>
+<!-- End Slider -->
+
+<!-- Start Services -->
+<section class="services-section" id="services">
+   <div class="container">
+      <h2 class="wow fadeInDown" data-wow-delay="300ms" >Nityo Infotech</h2>
+      <!-- <p class="wow fadeInDown" data-wow-delay="300ms">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
+      <div class="row no-gutters ">
+         <!-- Box-1 -->
+         <div class="col-lg-4 col-md-4 col-sm-12 flip-boxes wow fadeInLeft" data-wow-delay="400ms">
+            <div class="flip-box">
+               <div class="flip-box-inner">
+                  <div class="flip-box-front">
+                     <i class="fas fa-laptop"></i>
+                     <h5>Enhance your Recruitment Process</h5>
+                     <!-- <p></p> -->
+                  </div>
+                  <div class="flip-box-back">
+                     <i class="fas fa-laptop"></i>
+                     <h5>Enhance your Recruitment Process</h5>
+                     <!-- <p></p> -->
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- Box-2 -->
+         <div class="col-lg-4 col-md-4 col-sm-12 flip-boxes wow fadeIn" data-wow-delay="300ms">
+            <div class="flip-box">
+               <div class="flip-box-inner blue-box">
+                  <div class="flip-box-front">
+                     <i class="fas fa-chart-bar"></i>
+                     <h5>Increases Efficiency and Save Time</h5>
+                     <!-- <p></p> -->
+                  </div>
+                  <div class="flip-box-back">
+                     <i class="fas fa-chart-bar"></i>
+                     <h5>Increases Efficiency and Save Time</h5>
+                     <!-- <p></p> -->
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- Box-3 -->
+         <div class="col-lg-4 col-md-4 col-sm-12 flip-boxes wow fadeInRight" data-wow-delay="400ms">
+            <div class="flip-box">
+               <div class="flip-box-inner">
+                  <div class="flip-box-front">
+                     <i class="fas fa-edit"></i>
+                     <h5>Efficiently Leverage New Technology</h5>
+                     <!-- <p></p> -->
+                  </div>
+                  <div class="flip-box-back">
+                     <i class="fas fa-edit"></i>
+                     <h5>Efficiently Leverage New Technology</h5>
+                     <!-- <p></p> -->
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- End Services -->
+
+<!-- Start Learn More -->
+<section class="learn-more-section">
+   <div class="container">
+      <div class="text-area wow fadeInDown" data-wow-delay="300ms">
+         <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p> -->
+         <h2>Claculate Payroll of countries you want to Hire</h2>
+         
+      </div>
+   </div>
+</section>
+<!-- End Learn More -->
+<h3 style="text-align: center;">German Cost Table Calculator</h3>
+
+<div id="table_container">
+   <table id="table1" border="1">
+     <tr >
+       <th style="background-color: #032a58;">Particulars</th>
+       <th style="background-color: #032a58;">Annual Amount in Euros</th>
+     </tr>
+     <tr>
+       <td>Total Annual Salary</td>
+       <td>
+         <input type="number" id="baseSalary" placeholder="Enter total annual salary" />
+         <button style="border-radius: 50px;" id="button1" onclick="calculateCosts()">Calculate</button>
+         <button style="border-radius: 50px;" id="resetButton" onclick="resetForm()">Reset</button>
+       </td>
+     </tr>
+     <tr class="total-row">
+       <td>Total (A)</td>
+       <td id="totalA">€ 0.00</td>
+     </tr>
+     <tr>
+       <td>Benefits</td>
+       <td></td>
+     </tr>
+     <tr>
+       <td>&emsp;Workers Insurance (Fixed)</td>
+       <td>€ 1,000.00</td>
+     </tr>
+     <tr>
+       <td>&emsp;Transportation (Annual)</td>
+       <td>€ 600.00</td>
+     </tr>
+     <tr class="total-row">
+       <td>Total (B)</td>
+       <td id="totalB">€ 1,600.00</td>
+     </tr>
+     <tr>
+       <td>Employer Social Security Contributions (21.5% of Annual Base Salary)</td>
+       <td id="socialSecurity">€ 0.00</td>
+     </tr>
+     <tr class="total-row">
+       <td>Total (C)</td>
+       <td id="totalC">€ 0.00</td>
+     </tr>
+     <tr>
+       <td>Nityo Payroll Fee (7% of A + B + C)</td>
+       <td id="payrollFee">€ 0.00</td>
+     </tr>
+     <tr>
+       <td>Onboarding Charges (Fixed)</td>
+       <td>€ 600.00</td>
+     </tr>
+     <tr class="total-row">
+       <td>Total (D)</td>
+       <td id="totalD">€ 0.00</td>
+     </tr>
+     <tr class="total-row">
+       <td>Grand Total (A + B + C + D)</td>
+       <td id="grandTotal">€ 0.00</td>
+     </tr>
+   </table>
+   <button onclick="generatePDF()">Download PDF</button>
+ </div>
+
+
+
+<!-- Start Counters -->
+<section class="counter-section">
+   <div class="container">
+      <h2 class="wow fadeInDown" data-wow-delay="300ms">Statistical Numbers</h2>
+ 
+      <p class="wow fadeInDown" data-wow-delay="300ms">Vivamus ut scelerisque tellus. Morbi egestas neque et lorem sodales faucibus. Etiam<br>efficitur vehicula commodo. Curabitur ac libero ullamcorper,</p>
+      <div class="row no-gutters">
+         <!-- Counter-1 -->
+         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 wow fadeInLeft" data-wow-delay="400ms">
+            <div class="counter">
+               <div class="media">
+                  <i class="fas fa-chart-bar"></i>
+                  <div class="media-body">
+                     <span class="timer count-title count-number count">548</span>
+                     <p>Projects Completed</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- Counter-2 -->
+         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 wow fadeInLeft" data-wow-delay="400ms">
+            <div class="counter">
+               <div class="media">
+                  <i class="far fa-clock"></i>
+                  <div class="media-body">
+                     <span class="timer count-title count-number count">1465</span>
+                     <p>Working Hours</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- Counter-3 -->
+         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 wow fadeInRight" data-wow-delay="400ms">
+            <div class="counter">
+               <div class="media">
+                  <i class="far fa-star"></i>
+                  <div class="media-body">
+                     <span class="timer count-title count-number count">612</span>
+                     <p>Positive Feedbacks</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- Counter-4 -->
+         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 wow fadeInRight" data-wow-delay="400ms">
+            <div class="counter">
+               <div class="media">
+                  <i class="far fa-heart"></i>
+                  <div class="media-body">
+                     <span class="timer count-title count-number count">735</span>
+                     <p>Happy Clients</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- End Counters -->
+
+<!-- Start Team -->
+<section class="team-section" id="team">
+   <div class="container">
+      <h2 class="wow fadeInDown" data-wow-delay="300ms">Meet The Team</h2>
+      <p class="wow fadeInDown" data-wow-delay="300ms">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <div class=" text-center team-section-carousel owl-carousel owl-themes active wow zoomIn" data-wow-delay="400ms">
+         <!-- Team-1 -->
+         <div class="item">
+            <img src="classic-business/img/team-1.jpg" alt="image">
+            <div class="team-detail">
+               <h5>Jane Anderson</h5>
+               <p>Company CEO</p>
+            </div>
+         </div>
+         <!-- Team-2 -->
+         <div class="item">
+            <img src="classic-business/img/team-2.jpg" alt="image">
+            <div class="team-detail">
+               <h5>Andrew Cusik</h5>
+               <p>Marketing Lead</p>
+            </div>
+         </div>
+         <!-- Team-3 -->
+         <div class="item">
+            <img src="classic-business/img/team-3.jpg " alt="image">
+            <div class="team-detail">
+               <h5>Sarah Jenifer</h5>
+               <p>Strategist</p>
+            </div>
+         </div>
+         <!-- Team-4 -->
+         <div class="item">
+            <img src="classic-business/img/team-1.jpg" alt="image">
+            <div class="team-detail">
+               <h5>Jane Anderson</h5>
+               <p>Company CEO</p>
+            </div>
+         </div>
+         <!-- Team-5 -->
+         <div class="item">
+            <img src="classic-business/img/team-2.jpg" alt="image">
+            <div class="team-detail">
+               <h5>Andrew Cusik</h5>
+               <p>Marketing Lead</p>
+            </div>
+         </div>
+         <!-- Team-6 -->
+         <div class="item">
+            <img src="classic-business/img/team-3.jpg" alt="image">
+            <div class="team-detail">
+               <h5>Sarah Jenifer</h5>
+               <p>Strategist</p>
+            </div>
+         </div>
+         <!-- Team-7 -->
+         <div class="item">
+            <img src="classic-business/img/team-1.jpg" alt="image">
+            <div class="team-detail">
+               <h5>Jane Anderson</h5>
+               <p>Company CEO</p>
+            </div>
+         </div>
+         <!-- Team-8 -->
+         <div class="item">
+            <img src="classic-business/img/team-2.jpg" alt="image">
+            <div class="team-detail">
+               <h5>Andrew Cusik</h5>
+               <p>Marketing Lead</p>
+            </div>
+         </div>
+         <!-- Team-9 -->
+         <div class="item">
+            <img src="classic-business/img/team-3.jpg" alt="image">
+            <div class="team-detail">
+               <h5>Sarah Jenifer</h5>
+               <p>Strategist</p>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- End Team -->
+
+<!-- Start Story -->
+<section class="story-section">
+   <div class="container">
+      <div class="text-area wow fadeInDown" data-wow-delay="300ms">
+         <!-- <p>Lorem ipsum dolor sit amet, consectetur. </p> -->
+         <h2>How It Works</h2>
+         <a data-fancybox="" href="https://www.youtube.com/watch?v=7e90gBu4pas" class="btn button btn-rounded trans-btn btn-hvr-white wow fadeInUp" data-wow-delay="300ms" >
+            <i class="fas fa-play"></i>Play Now
+            <div class="btn-hvr-setting">
+               <ul class="btn-hvr-setting-inner">
+                  <li class="btn-hvr-effect"></li>
+                  <li class="btn-hvr-effect"></li>
+                  <li class="btn-hvr-effect"></li>
+                  <li class="btn-hvr-effect"></li>
+               </ul>
+            </div>
+         </a>
+      </div>
+   </div>
+</section>
+<!-- End Story -->
+
+<br>
+<br>
+<br>
+
+<!-- Start Quote -->
+<section class="quote-section">
+   <div class="container">
+      <div class="text-section wow zoomIn" data-wow-delay="300ms">
+       
+         <h3 style="background-color: #ffffff;">" Hire character, train skill. Success starts with the right people "</h3>
+         
+      </div>
+   </div>
+</section>
+<!-- End Quote -->
+
+<!-- Start Pricing -->
+<!-- <div class="pricing-section" id="pricing">
+   <div class="container">
+      <h2 class="wow fadeInDown" data-wow-delay="300ms">Pricing Plans</h2>
+      <p class="wow fadeInDown" data-wow-delay="300ms">Vivamus ut scelerisque tellus. Morbi egestas neque et lorem sodales faucibus. Etiam<br>
+         efficitur vehicula commodo. Curabitur ac libero ullamcorper,
+      <div class="row pricing-plans">
+         <div class="col-lg-4 wow fadeInLeft" data-wow-delay="400ms">
+            <div class="single-price">
+               <div class="price-tag">
+                  <h4>Starter Plan</h4>
+                  <h3>$19.<span>00</span></h3>
+                  <p>1Months</p>
+               </div>
+               <div class="price-item">
+                  <ul>
+                     <li>Modern & Creative Design</li>
+                     <li>Premium Plugins</li>
+                     <li>Clean Code</li>
+                     <li>Responsive Layouts</li>
+                     <li>Google Fonts</li>
+                     <li>Highly Customizable</li>
+                  </ul>
+               </div>
+               <a class="btn button btn-rounded btn-white btn-hvr-blue" href="javascript:void(0);">
+                  GET STARTED
+                  <div class="btn-hvr-setting">
+                     <ul class="btn-hvr-setting-inner">
+                        <li class="btn-hvr-effect"></li>
+                        <li class="btn-hvr-effect"></li>
+                        <li class="btn-hvr-effect"></li>
+                        <li class="btn-hvr-effect"></li>
+                     </ul>
+                  </div>
+               </a>
+            </div>
+         </div>
+         <div class="col-lg-4  wow fadeIn" data-wow-delay="400ms">
+            <div class="single-price active">
+               <div class="price-tag ">
+                  <h4>Business Plan</h4>
+                  <h3>$79.<span>00</span></h3>
+                  <p>6Months</p>
+               </div>
+               <div class="price-item">
+                  <ul>
+                     <li>Modern & Creative Design</li>
+                     <li>Premium Plugins</li>
+                     <li>Clean Code</li>
+                     <li>Responsive Layouts</li>
+                     <li>Google Fonts</li>
+                     <li>Highly Customizable</li>
+                  </ul>
+               </div>
+               <a class="btn button btn-rounded btn-light-blue btn-hvr-light-blue" href="javascript:void(0);">
+                  GET STARTED
+                  <div class="btn-hvr-setting">
+                     <ul class="btn-hvr-setting-inner">
+                        <li class="btn-hvr-effect"></li>
+                        <li class="btn-hvr-effect"></li>
+                        <li class="btn-hvr-effect"></li>
+                        <li class="btn-hvr-effect"></li>
+                     </ul>
+                  </div>
+               </a>
+            </div>
+         </div>
+         <div class="col-lg-4  wow fadeInRight" data-wow-delay="400ms">
+            <div class="single-price">
+               <div class="price-tag">
+                  <h4>Premium Plan</h4>
+                  <h3>$149.<span>00</span></h3>
+                  <p>12Months</p>
+               </div>
+               <div class="price-item">
+                  <ul>
+                     <li>Modern & Creative Design</li>
+                     <li>Premium Plugins</li>
+                     <li>Clean Code</li>
+                     <li>Responsive Layouts</li>
+                     <li>Google Fonts</li>
+                     <li>Highly Customizable</li>
+                  </ul>
+               </div>
+               <a class="btn button btn-rounded btn-white btn-hvr-blue" href="javascript:void(0);">
+                  GET STARTED
+                  <div class="btn-hvr-setting">
+                     <ul class="btn-hvr-setting-inner">
+                        <li class="btn-hvr-effect"></li>
+                        <li class="btn-hvr-effect"></li>
+                        <li class="btn-hvr-effect"></li>
+                        <li class="btn-hvr-effect"></li>
+                     </ul>
+                  </div>
+               </a>
+            </div>
+         </div>
+      </div>
+   </div>
+</div> -->
+<!-- End Pricing -->
+
+<!-- Start Blog -->
+<!-- <section class="blog-section" id="blog">
+   <div class="container">
+      <div class="row no-gutters">
+         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 left-text wow fadeInLeftBig" data-wow-delay="300ms">
+            <h2>Work Environment</h2>
+            <p>Curabitur mollis bibendum luctus. Duis suscipit vitae dui sed suscipit. Vestibulum auctor nunc vitae diam eleifend, in maximus metus sollicitudin. Quisque vitae sodales lectus. Nam porttitor justo sed mi finibus, vel tristique risus faucibus. </p>
+            <a class="btn button btn-rounded btn-light-blue btn-hvr-light-blue" href="javascript:void(0);">
+               Read Full Story
+               <div class="btn-hvr-setting">
+                  <ul class="btn-hvr-setting-inner">
+                     <li class="btn-hvr-effect"></li>
+                     <li class="btn-hvr-effect"></li>
+                     <li class="btn-hvr-effect"></li>
+                     <li class="btn-hvr-effect"></li>
+                  </ul>
+               </div>
+            </a>
+         </div>
+         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 wow fadeInRightBig" data-wow-delay="300ms">
+            <img src="classic-business/img/blog-1.jpg" alt="image">
+         </div>
+         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 right-text order-2 order-lg-1 wow fadeInLeftBig" data-wow-delay="300ms">
+            <img src="classic-business/img/blog-2.jpg" alt="image">
+         </div>
+         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 right-text order-1 order-lg-2 wow fadeInRightBig" data-wow-delay="300ms">
+            <h2>Web Development</h2>
+            <p>Curabitur mollis bibendum luctus. Duis suscipit vitae dui sed suscipit Vestibulum auctor nunc vitae diam eleifend, in maximus metus sollicitudin  Quisque vitae sodales lectus. </p>
+            <a class="btn button btn-rounded btn-light-blue btn-hvr-light-blue" href="javascript:void(0);">
+               Read Full Story
+               <div class="btn-hvr-setting">
+                  <ul class="btn-hvr-setting-inner">
+                     <li class="btn-hvr-effect"></li>
+                     <li class="btn-hvr-effect"></li>
+                     <li class="btn-hvr-effect"></li>
+                     <li class="btn-hvr-effect"></li>
+                  </ul>
+               </div>
+            </a>
+         </div>
+      </div>
+   </div>
+</section> -->
+<!-- End Blog -->
+
+<!-- Start Contact -->
+<!-- <section class="contact-section" id="contact">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-8 col-md-12 col-sm-12 wow fadeInLeft" data-wow-delay="300ms">
+            <h2>Let's Get In Touch</h2>
+            <form class="contact-form" id="contact-form-data">
+               <div class="row">
+                  <div class="col-12" id="result"></div>
+                  <div class="col-lg-6 col-md-6 col-sm-6">
+                     <div class="form-group">
+                        <label>Name</label>
+                        <input class="form-control" type="email" placeholder="Your Name" required=""  name="userName">
+                     </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6">
+                     <div class="form-group">
+                        <label >Email</label>
+                        <input class="form-control" type="email" placeholder="email@website.com" required=""  name="userEmail">
+                     </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                     <div class="form-group">
+                        <label>Message</label>
+                        <textarea class="form-control" placeholder="Write your message here"  name="userMessage" rows="6" cols="50"></textarea>
+                     </div>
+                  </div>
+                  <a href="JavaScript:void(0);" class="btn button btn-rounded btn-light-blue btn-hvr-light-blue contact_btn">SEND
+                     <div class="btn-hvr-setting">
+                        <ul class="btn-hvr-setting-inner">
+                           <li class="btn-hvr-effect"></li>
+                           <li class="btn-hvr-effect"></li>
+                           <li class="btn-hvr-effect"></li>
+                           <li class="btn-hvr-effect"></li>
+                        </ul>
+                     </div>
+                  </a>
+               </div>
+            </form>
+         </div>
+         <div class="col-lg-4 col-md-12 col-sm-12 wow fadeInRight" data-wow-delay="300ms">
+            <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu
+               feugiat nulla facilisis accumsan.
+            </p>
+            <div class="media">
+               <i class="fas fa-map-marker-alt"></i>
+               <div class="media-body">
+                  <h5>OUR ADDRESS</h5>
+                  <p>1234 Heaven Stress, Beverly Hill.</p>
+               </div>
+            </div>
+            <div class="media">
+               <i class="fas fa-phone"></i>
+               <div class="media-body">
+                  <h5>PHONE NUMBER</h5>
+                  <p>Office: (800) 123 456 789 </p>
+               </div>
+            </div>
+            <div class="media">
+               <i class="far fa-envelope"></i>
+               <div class="media-body">
+                  <h5>EMAIL ADDRESS</h5>
+                  <p>Email: email@website.com</p>
+                  <p>Support: support@website.com</p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section> -->
+<!-- End Contact -->
+
+<!-- Start Footer -->
+<footer class="no-gutters">
+   <div class="container">
+      <div class="footer-social-icons wow fadeInDown" data-wow-delay="300ms">
+         <ul>
+            <li><a class="facebook-hovr" href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="javascript:void(0);"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="javascript:void(0);"><i class="fab fa-google-plus-g"></i></a></li>
+            <li><a href="javascript:void(0);"><i class="fab fa-linkedin-in"></i></a></li>
+            <li><a href="javascript:void(0);"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="javascript:void(0);"><i class="far fa-envelope"></i></a></li>
+         </ul>
+      </div>
+      <p class="wow fadeInDown" data-wow-delay="300ms">&copy; 2023 MegaOne. made with love by themesindustry</p>
+   </div>
+</footer>
+<!-- End Footer -->
+
+<!-- JavaScript -->
+<script src="vendor/js/bundle.min.js"></script>
+<!-- Plugin Js -->
+<script src="vendor/js/jquery.appear.js"></script>
+<script src="vendor/js/jquery.fancybox.min.js"></script>
+<script src="vendor/js/owl.carousel.min.js"></script>
+<script src="vendor/js/swiper.min.js"></script>
+<script src="vendor/js/jquery.cubeportfolio.min.js"></script>
+<script src="vendor/js/wow.min.js"></script>
+<!-- REVOLUTION JS FILES -->
+<script src="vendor/js/jquery.themepunch.tools.min.js"></script>
+<script src="vendor/js/jquery.themepunch.revolution.min.js"></script>
+<!-- SLIDER REVOLUTION EXTENSIONS -->
+<script src="vendor/js/extensions/revolution.extension.actions.min.js"></script>
+<script src="vendor/js/extensions/revolution.extension.carousel.min.js"></script>
+<script src="vendor/js/extensions/revolution.extension.kenburn.min.js"></script>
+<script src="vendor/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script src="vendor/js/extensions/revolution.extension.migration.min.js"></script>
+<script src="vendor/js/extensions/revolution.extension.navigation.min.js"></script>
+<script src="vendor/js/extensions/revolution.extension.parallax.min.js"></script>
+<script src="vendor/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script src="vendor/js/extensions/revolution.extension.video.min.js"></script>
+<!-- Custom Js -->
+<script src="vendor/js/contact_us.js"></script>
+<script src="classic-business/js/script.js"></script>
+<!-- <script>
+   function calculateCosts() {
+       const baseSalary = parseFloat(document.getElementById('baseSalary').value) || 0;
+       const workersInsurance = 1000;
+       const transportation = 600;
+       const socialSecurity = baseSalary * 0.215;
+       const totalA = baseSalary;
+       const totalB = workersInsurance + transportation;
+       const totalC = socialSecurity;
+       const payrollFee = 0.07 * (totalA + totalB + totalC);
+       const onboardingCharges = 600;
+       const totalD = payrollFee + onboardingCharges;
+       const grandTotal = totalA + totalB + totalC + totalD;
+
+       document.getElementById('totalA').innerText = `€ ${totalA.toFixed(2)}`;
+       document.getElementById('totalB').innerText = `€ ${totalB.toFixed(2)}`;
+       document.getElementById('socialSecurity').innerText = `€ ${socialSecurity.toFixed(2)}`;
+       document.getElementById('totalC').innerText = `€ ${totalC.toFixed(2)}`;
+       document.getElementById('payrollFee').innerText = `€ ${payrollFee.toFixed(2)}`;
+       document.getElementById('totalD').innerText = `€ ${totalD.toFixed(2)}`;
+       document.getElementById('grandTotal').innerText = `€ ${grandTotal.toFixed(2)}`;
+
+       console.log("Base Salary:", baseSalary);
+       console.log("Workers Insurance:", workersInsurance);
+       console.log("Transportation:", transportation);
+       console.log("Social Security:", socialSecurity);
+       console.log("Total A:", totalA);
+       console.log("Total B:", totalB);
+       console.log("Total C:", totalC);
+       console.log("Payroll Fee:", payrollFee);
+       console.log("Onboarding Charges:", onboardingCharges);
+       console.log("Total D:", totalD);
+       console.log("Grand Total:", grandTotal);
+   }
+</script>
+<script>function generatePDF() {
+   const { jsPDF } = window.jspdf;
+   const doc = new jsPDF();
+   doc.text("German Cost Table Calculator", 14, 10);
+   const table = document.getElementById("table1");
+   doc.autoTable({ html: table });
+   doc.save("cost_table_calculator.pdf");
+}
+</script> -->
+<script>
+   function resetForm() {
+    document.getElementById("baseSalary").value = "";
+    document.getElementById("totalA").textContent = "€ 0.00";
+    document.getElementById("socialSecurity").textContent = "€ 0.00";
+    document.getElementById("totalC").textContent = "€ 0.00";
+    document.getElementById("payrollFee").textContent = "€ 0.00";
+    document.getElementById("totalD").textContent = "€ 0.00";
+    document.getElementById("grandTotal").textContent = "€ 0.00";
+}
+  
+function calculateCosts() {
+    const baseSalary = parseFloat(document.getElementById("baseSalary").value) || 0;
+    const totalA = baseSalary;
+    const totalB = 1600;
+    const socialSecurity = baseSalary * 0.215;
+    const totalC = socialSecurity;
+    let payrollFee = (totalA + totalB + totalC) * 0.07;
+    if (payrollFee >= 8000) {
+        payrollFee = 8000;
+    }
+    const totalD = payrollFee + 600;
+    const grandTotal = totalA + totalB + totalC + totalD;
+
+    document.getElementById("totalA").innerText = `€ ${totalA.toFixed(2)}`;
+    document.getElementById("socialSecurity").innerText = `€ ${socialSecurity.toFixed(2)}`;
+    document.getElementById("totalC").innerText = `€ ${totalC.toFixed(2)}`;
+    document.getElementById("payrollFee").innerText = `€ ${payrollFee.toFixed(2)}`;
+    document.getElementById("totalD").innerText = `€ ${totalD.toFixed(2)}`;
+    document.getElementById("grandTotal").innerText = `€ ${grandTotal.toFixed(2)}`;
+}
+   
+   // function generatePDF() {
+   //     const { jsPDF } = window.jspdf;
+   //     const doc = new jsPDF();
+   //     doc.text("German Cost Table Calculator", 14, 10);
+   //     const table = document.getElementById("table1");
+   //     doc.autoTable({ html: table });
+   //     doc.save("cost_table_calculator.pdf");
+   // }
+
+   function generatePDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    // Title at the top
+    doc.text("Cost Table", 14, 10);
+
+    // Adding timestamp above the table
+    const currentDateTime = new Date();
+    const formattedDateTime = `${currentDateTime.getFullYear()}-${String(currentDateTime.getMonth() + 1).padStart(2, '0')}-${String(currentDateTime.getDate()).padStart(2, '0')} ${String(currentDateTime.getHours()).padStart(2, '0')}:${String(currentDateTime.getMinutes()).padStart(2, '0')}:${String(currentDateTime.getSeconds()).padStart(2, '0')}`;
+    doc.text(`Generated on: ${formattedDateTime}`, 14, 20); // Position the timestamp
+
+    // Load image dynamically
+    const imgElement = new Image();
+    imgElement.src = 'data:image/jpeg;base64,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'; // Ensure this path is correct and accessible
+    imgElement.onload = function () {
+        doc.addImage(imgElement, 'PNG', 14, 30, 50, 50);  // x, y, width, height
+
+        // Generate the table with vertical offset to make room for the timestamp and image
+        doc.autoTable({
+            html: '#table1',
+            startY: 90 // Adjust the start position for the table to clear the image
+        });
+
+        // Save the PDF with a dynamic filename
+        doc.save(`cost_table_calculator_${formattedDateTime.replace(/[: ]/g, '_')}.pdf`);
+    };
+}
+
+
+   </script>
+   
+</body>
+</html>
